@@ -40,6 +40,8 @@ public class Users implements UserDetails {
 
     @Column(name="user_password",nullable = false)
     public String password;
+    @Column(name="user_role",nullable=false)
+    public String role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -118,5 +120,13 @@ public class Users implements UserDetails {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

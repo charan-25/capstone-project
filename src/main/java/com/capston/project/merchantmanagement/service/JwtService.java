@@ -1,5 +1,6 @@
 package com.capston.project.merchantmanagement.service;
 
+import com.capston.project.merchantmanagement.entities.Users;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -56,7 +57,20 @@ public class JwtService {
         return buildToken(extraClaims,userDetails,jwtExpiration);
     }
 
+    public String generateToken(Users user){
+        Claims claims = Jwts.claims().setSubject(user.getEmail());
+        claims.put("userId",user.getId());
+        claims.put("role",user.getRole());
+
+        return Jwts.builder()
+                .setClaims(claims)
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis()+jwtExpiration))
+                .signWith(SignatureAlgorithm.HS256,secretKey).compact();
+    }
+
     public String buildToken(Map<String ,Object> extraClaims,UserDetails userDetails,long expiration){
+
         return Jwts
                 .builder()
                 .setClaims(extraClaims)

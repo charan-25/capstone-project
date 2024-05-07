@@ -6,12 +6,14 @@ import com.capston.project.merchantmanagement.dtos.RegisterDTO;
 import com.capston.project.merchantmanagement.entities.Users;
 import com.capston.project.merchantmanagement.service.AuthenticationService;
 import com.capston.project.merchantmanagement.service.JwtService;
+import jakarta.annotation.security.RolesAllowed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
+@RolesAllowed("USER_ADMIN")
 public class LoginController {
 
     @Autowired
