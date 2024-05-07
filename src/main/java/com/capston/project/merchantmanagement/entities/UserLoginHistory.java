@@ -29,4 +29,44 @@ public class UserLoginHistory {
     @NotFound(action = NotFoundAction.IGNORE)
     @JoinColumn(name="usr_user_id",referencedColumnName = "user_id")
     private Users users;
+
+    public Integer getSerialNumber() {
+        return serialNumber;
+    }
+
+    public void setSerialNumber(Integer serialNumber) {
+        this.serialNumber = serialNumber;
+    }
+
+    public Date getLoginTime() {
+        return loginTime;
+    }
+
+    public void setLoginTime(Date loginTime) {
+        this.loginTime = loginTime;
+    }
+
+    public Date getLogoutTime() {
+        return logoutTime;
+    }
+
+    public void setLogoutTime(Date logoutTime) {
+        this.logoutTime = logoutTime;
+    }
+
+    public String getLoginIP() {
+        return loginIP;
+    }
+
+    public void setLoginIP(String loginIP) {
+        this.loginIP = loginIP;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
+    }
 }

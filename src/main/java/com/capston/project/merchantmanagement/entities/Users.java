@@ -1,9 +1,6 @@
 package com.capston.project.merchantmanagement.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import org.apache.catalina.User;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
@@ -15,8 +12,6 @@ import java.util.List;
 
 @Entity
 @Table(name="users")
-@Getter
-@Setter
 public class Users implements UserDetails {
 
     @Id
